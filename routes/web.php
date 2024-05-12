@@ -6,6 +6,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FavoriteController;
 use App\Models\Review;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
     Route::post('favorites/{product_id}', [FavoriteController::class, 'store'])->name('favorites.store');
     Route::delete('favorites/{product_id}', [FavoriteController::class, 'destroy'])->name('favorites.destroy');
+});
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('users/mypage', 'mypage')->name('mypage');
+    Route::get('users/mypage/edit', 'edit')->name('mypage.edit');
+    Route::put('users/mypage', 'update')->name('mypage.update');
 });
