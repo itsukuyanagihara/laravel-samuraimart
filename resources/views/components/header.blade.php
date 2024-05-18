@@ -42,6 +42,12 @@
              <i class="far fa-heart"></i>
            </a>
          </li>
+        <li class="nav-item mr-5">
+          <a class="nav-link" href="{{ route('carts.index') }}">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </li>
+
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
           @csrf
         </form>
