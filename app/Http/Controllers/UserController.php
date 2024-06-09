@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -72,6 +73,12 @@ class UserController extends Controller
         $favorite_products = $user->favorite_products;
     
         return view('users.favorite', compact('favorite_products'));
+    }
+
+    public function destroy(Request $request) {
+        Auth::user()->delete();
+
+        return redirect('/');
     }
 
     
