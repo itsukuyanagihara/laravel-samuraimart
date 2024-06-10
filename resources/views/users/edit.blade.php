@@ -93,7 +93,7 @@
 
       <hr>
       <div class="d-flex justify-content-start">
-        <form method="post" action="{{ route(mypage.destroy) }}">
+        <form method="post" action="{{ route('mypage.destroy') }}">
           @csrf
           <input type="hidden" name="_method" value="DELETE">
           <div class="btn dashboard-delete-link" data-bs-toggle="modal" data-bs-target="#delete-user-confirm-modal">退会する</div>
